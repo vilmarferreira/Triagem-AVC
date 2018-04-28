@@ -21,6 +21,13 @@
         app:srcCompat="@mipmap/img_user" />
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView" />
+
+    <TextView
         android:id="@+id/textPerfil"
         android:layout_width="299dp"
         android:layout_height="95dp"
