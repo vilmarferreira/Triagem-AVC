@@ -30,7 +30,7 @@ public class chatActivity extends AppCompatActivity {
 
     private Button  add_room;
     private EditText room_name;
-
+    TextView vrText;
     private ListView listView;
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> list_of_rooms = new ArrayList<>();
@@ -52,6 +52,8 @@ public class chatActivity extends AppCompatActivity {
 
         listView.setAdapter(arrayAdapter);
 
+//        vrText=(TextView)findViewById(R.id.textPerfil);
+//        name = vrText.getText();
         request_user_name();
 
         add_room.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.example.vilmarferreira.triagem_avc;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -17,24 +18,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class TelaPrincipal extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+    ImageView vrImage;
+    TextView vrText;
+    String user;
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
+
     private ViewPager mViewPager;
 
     @Override
@@ -57,6 +52,10 @@ public class TelaPrincipal extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        vrImage=(ImageView) findViewById(R.id.ImagUser);
+        vrText=(TextView)findViewById(R.id.textPerfil);
+
+        //carregaPerfil();
 
 
     }
@@ -71,16 +70,10 @@ public class TelaPrincipal extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -113,14 +106,13 @@ public class TelaPrincipal extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_tela_principal, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+
             if(getArguments().getInt(ARG_SECTION_NUMBER) ==1)
             {}//textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             else{
                 if (getArguments().getInt(ARG_SECTION_NUMBER)==2)
                 {
                     rootView = inflater.inflate(R.layout.fragment_fragment_tab_2, container, false);
-                    textView.setText("Teste 2 ");
                 }
             }
             return rootView;
@@ -147,12 +139,44 @@ public class TelaPrincipal extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 4;
         }
     }
     public void onClickBatePapo (View v)
     {
         Intent intent = new Intent(this, chatActivity.class);
         startActivity(intent);
+    }
+
+    public void carregaPerfil ()
+    {
+        String a=getIntent().getExtras().getString("Senha");
+        user = getIntent().getExtras().getString("login");
+        if (user.equals("Vilmar"))
+        {
+            vrImage.setImageResource(R.mipmap.img_user);
+            vrText.setText("Seja bem Vindo: "+user);
+        }
+        else
+        {
+            if(user.equals("admin"))
+            {
+                vrImage.setImageResource(R.mipmap.img_user2);
+                vrText.setText("Seja bem Vindo: "+user);
+            }
+        }
+    }
+    public void onActivityResult(int codTela, int result, Intent dados)
+    {
+        if(result== Activity.RESULT_CANCELED)
+        {
+            return;
+        }
+        if(codTela==2)
+        {
+            Bundle bundle= dados.getExtras();
+            String login=bundle.getString("login");
+
+        }
     }
 }
