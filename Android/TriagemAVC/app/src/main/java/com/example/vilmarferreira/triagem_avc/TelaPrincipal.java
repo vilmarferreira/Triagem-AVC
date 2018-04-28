@@ -21,6 +21,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.net.URL;
+
 public class TelaPrincipal extends AppCompatActivity {
 
     ImageView vrImage;
@@ -113,6 +115,31 @@ public class TelaPrincipal extends AppCompatActivity {
                 if (getArguments().getInt(ARG_SECTION_NUMBER)==2)
                 {
                     rootView = inflater.inflate(R.layout.fragment_fragment_tab_2, container, false);
+                }
+                else {
+                    if (getArguments().getInt(ARG_SECTION_NUMBER)==3)
+                    {
+                        rootView = inflater.inflate(R.layout.activity_maps, container, false);
+                    }
+                    else
+                    {
+                        if (getArguments().getInt(ARG_SECTION_NUMBER)==4)
+                        {
+                            DownloadConteudo downloadConteudo = new DownloadConteudo ();
+
+                            // ActivityCompat.requestPermissions(this, new String [](android.Manifest.permission.INTERNET, android.Manifest.permission.ACCESS_NETWORK_STATE), 12);
+                            try
+                            {
+                                downloadConteudo.execute(new URL("http://ea445c14.ngrok.io/postagens"));
+                            }
+                            catch (Exception e)
+                            {
+
+                            }
+                            rootView = inflater.inflate(R.layout.fragment_listar, container, false);
+                        }
+
+                    }
                 }
             }
             return rootView;
