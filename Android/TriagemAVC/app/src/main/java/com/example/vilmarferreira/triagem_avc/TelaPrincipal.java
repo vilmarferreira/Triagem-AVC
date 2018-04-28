@@ -1,5 +1,6 @@
 package com.example.vilmarferreira.triagem_avc;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -148,5 +149,10 @@ public class TelaPrincipal extends AppCompatActivity {
             // Show 3 total pages.
             return 3;
         }
+    }
+    public void onClickBatePapo (View v)
+    {
+        Intent intent = new Intent(this, chatActivity.class);
+        startActivity(intent);
     }
 }

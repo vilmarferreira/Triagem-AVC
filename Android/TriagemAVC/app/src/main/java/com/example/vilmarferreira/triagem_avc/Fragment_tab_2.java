@@ -1,6 +1,7 @@
 package com.example.vilmarferreira.triagem_avc;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,6 +25,8 @@ public class Fragment_tab_2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment_tab_2, container, false);
+
     }
+
 
 }
