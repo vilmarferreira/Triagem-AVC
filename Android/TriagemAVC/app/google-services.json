@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "22691695845",
+    "firebase_url": "https://triagemavc.firebaseio.com",
+    "project_id": "triagemavc",
+    "storage_bucket": "triagemavc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22691695845:android:29b9e46ef112db52",
+        "android_client_info": {
+          "package_name": "com.example.vilmarferreira.triagem_avc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22691695845-gn4gg6aq65tqv1ifllvkvbegkc5lahbm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vilmarferreira.triagem_avc",
+            "certificate_hash": "5235ce45e6827aa9510c4d6f8b01f58d8083a147"
+          }
+        },
+        {
+          "client_id": "22691695845-itor257qeuehds7rn0gtod3d8ivv9n3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDicv1AmD7MYsfEhq0VOghQt9_KCsJEbTw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22691695845-itor257qeuehds7rn0gtod3d8ivv9n3o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
